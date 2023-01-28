@@ -1,5 +1,5 @@
 var arr = []
-var month = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] /// cuma bisa sampe 12
+var month = [] /// cuma bisa sampe 12
 var data = []
 
 
@@ -10,6 +10,10 @@ function compoundInvestment(InitialDepo, rate, months, monthlyAddition) {
         total = Math.floor(total * (1 + rate / 12));
         arr.push(total)
     }
+    for(i=1; i<= arr.length; i++){
+        month.push(i)
+    }
+
     for (let i = 0; i < arr.length; i++) {
         data.push({ month: month[i], amount: arr[i] });
     }
