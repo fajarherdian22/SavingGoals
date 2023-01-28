@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <form id="investment-form">
+            <label for="principal">Initial Depo:</label>
+            <input type="number" id="principal" name="principal">
+            <br>
+            <label for="rate">Rate:</label>
+            <input type="text" id="rate" name="rate">
+            <br>
+            <label for="months">Months:</label>
+            <input type="number" id="months" name="months">
+            <br>
+            <label for="monthly-addition">Monthly Addition:</label>
+            <input type="number" id="monthly-addition" name="monthly-addition">
+            <br>
+            <input type="submit" value="Calculate" id="calculate">
+        </form>
+    </div>
+    <!-- <div id="target">
+    </div> -->
+    <div class="main-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Returns</th>
+                </tr>
+            </thead>
+            <tbody> </tbody>
+        </table>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
