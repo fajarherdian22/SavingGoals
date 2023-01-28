@@ -5,3 +5,12 @@
     border-radius: 5px;
     box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
   }
+
+  table, th, td{
+    
+    border-collapse: collapse;
+    width: 35%;
+    text-align: center;
+    border: 1px solid;
+    border: solid 1px black;
+  }
