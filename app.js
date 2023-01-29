@@ -2,6 +2,7 @@ var arr = []
 var month = []
 var data = []
 var bulanan = []
+var totalbulan = []
 
 function compoundInvestment(InitialDepo, rate, months, monthlyAddition) {
     var total = InitialDepo;
@@ -21,13 +22,22 @@ function compoundInvestment(InitialDepo, rate, months, monthlyAddition) {
     for (i = 1; i <= arr.length; i++) {
         month.push(i)
     }
+    // parsing array Number ke format IDR
     var formater = new Intl.NumberFormat(undefined, { style: 'currency', currency: 'IDR' })
     var formatted = arr.map(formater.format);
 
-    
+    // parsing array bulanan return Number ke format IDR
     var formater2 = new Intl.NumberFormat(undefined, { style: 'currency', currency: 'IDR' })
     var formatted2 = bulanan.map(formater2.format);
+    
 
+    const z = bulanan.reduceRight((acc, cur) => acc + cur, 0);
+    totalbulan.push(z)
+    const returnTotal = new Intl.NumberFormat(undefined, { style: 'currency', currency: 'IDR' }).format(z)
+
+    var balance = arr[arr.length -1] - totalbulan
+    const returnTotalIDR = new Intl.NumberFormat(undefined, { style: 'currency', currency: 'IDR' }).format(balance)
+    
     //  membuat array object bulan dan returns
     for (let i = 0; i < arr.length; i++) {
         data.push({ month: month[i], amount: formatted[i], ROI: formatted2[i] });
@@ -55,7 +65,10 @@ function compoundInvestment(InitialDepo, rate, months, monthlyAddition) {
         }
     });
 
-
+    // 
+    document.getElementById("asu").innerHTML = formatted[formatted.length -1];
+    document.getElementById("ppk").innerHTML = returnTotal;
+    document.getElementById("IB").innerHTML = returnTotalIDR;
 
     // parsing ke HTML
     const table = document.querySelector('tbody')
@@ -77,6 +90,17 @@ form.addEventListener("submit", function (e) {
     const months = parseInt(document.getElementById("months").value);
     const monthlyAddition = parseInt(document.getElementById("monthly-addition").value);
     const result = compoundInvestment(principal, rate, months, monthlyAddition);
+    
+    // const formater = new Intl.NumberFormat(undefined, { style: 'currency', currency: 'IDR'})
+    // const formatted = arr.map(formater.format);
+    // console.log(formatted[formatted.length -1]);
+
+    // const formater2 = new Intl.NumberFormat(undefined, { style: 'currency', currency: 'IDR'})
+    // const formatted2 = bulanan.map(formater2.format);
+    // console.log(formatted2[formatted2.length -1]);
+
+    // const z = bulanan.reduceRight((acc, cur) => acc + cur, 0);
+    // console.log(new Intl.NumberFormat(undefined, { style: 'currency', currency: 'IDR' }).format(z))
     // console.log(result);
     console.log(data);
 });

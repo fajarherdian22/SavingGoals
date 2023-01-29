@@ -15,10 +15,25 @@ width: 30%;
     text-align: center;
   }
 
+  .card-title{
+    text-align: center;
+  }
+
 .target{
   position: fixed;
   top: 50%;
   left: 50%;
   margin-top: -50px;
   margin-left: -100px;
+}
+/* 
+canvas{
+  margin-left: 50px;
+  margin-right: 50px;
+  width:40,
+} */
+
+.chart-wrapper {
+  height:  400px;
+  width: 1000px;
 }

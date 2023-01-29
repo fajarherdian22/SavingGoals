@@ -17,38 +17,39 @@
 </head>
 
 <body>
-    <h1 class="text-3xl font-bold underline">Simulation Goal Savings</h1>
     <div class="flex justify-center">
         <div class="mb-3 xl:w-96">
+            <h1 class="text-3xl font-bold underline">Simulation Goal Savings</h1>
             <form id="investment-form">
+
                 <label for="principal" class="block">
                     <span
-                        class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
-                        Initial Depo:
+                        class="after:content-[''] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+                        Initial Deposit:
                     </span>
                     <input type="number" id="principal" name="principal" min="0"
                         class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" />
                 </label>
                 <label for="rate" class="block">
                     <span
-                        class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
-                        Rate:
+                        class="after:content-[''] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+                        Interest Rate:
                     </span>
                     <input type="text" id="rate" name="rate"
                         class="mt-1 px-1 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" />
                 </label>
                 <label for="months" class="block">
                     <span
-                        class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
-                        months:
+                        class="after:content-[''] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+                        Savings term(month):
                     </span>
                     <input type="number" id="months" name="rate" min="0" max="360"
                         class="mt-1 px-1 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" />
                 </label>
                 <label for="monthly-addition" class="block">
                     <span
-                        class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
-                        monthly-addition:
+                        class="after:content-[''] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+                        Monthly Addition:
                     </span>
                     <input type="number" id="monthly-addition" name="rate" min="0"
                         class="mt-1 px-1 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" />
@@ -64,8 +65,8 @@
             </form>
         </div>
     </div>
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <div class="w-96">
+        <table class="w-96 text-sm text-left text-gray-500 dark:text-gray-400 hover:w-full">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">Month</th>
@@ -76,10 +77,54 @@
             <tbody> </tbody>
         </table>
     </div>
-    <div>
-        <canvas id="bar-chart" width="40" height="20"></canvas>
-    </div>
-    <script src="app.js"></script>
+    <div id="tess">
+        <div class="max-w-full mx-4 py-6 sm:mx-auto sm:px-6 lg:px-8">
+            <div class="sm:flex sm:space-x-4">
+                <div
+                    class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+                    <div class="bg-white p-5">
+                        <div class="sm:flex sm:items-start">
+                            <div class="text-center sm:mt-0 sm:ml-2 sm:text-left">
+                                <h3 class="text-sm leading-6 font-medium text-gray-400">Total Assets</h3>
+                                <p class="text-3xl font-bold text-black" id="asu"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+                    <div class="bg-white p-5">
+                        <div class="sm:flex sm:items-start">
+                            <div class="text-center sm:mt-0 sm:ml-2 sm:text-left">
+                                <h3 class="text-sm leading-6 font-medium text-gray-400">Total Returns</h3>
+                                <p class="text-3xl font-bold text-black" id="ppk"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow transform transition-all mb-4 w-full sm:w-1/3 sm:my-8">
+                    <div class="bg-white p-5">
+                        <div class="sm:flex sm:items-start">
+                            <div class="text-center sm:mt-0 sm:ml-2 sm:text-left">
+                                <h3 class="text-sm leading-6 font-medium text-gray-400">Initial Balance</h3>
+                                <p class="text-3xl font-bold text-black" id="IB"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="chart-wrapper">
+                            <canvas id="bar-chart" width="40" height="20"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="app.js"></script>
 </body>
 
 </html>
