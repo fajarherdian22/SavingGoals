@@ -7,10 +7,18 @@
   }
 
   table, th, td{
-    
     border-collapse: collapse;
-    width: 35%;
-    text-align: center;
-    border: 1px solid;
-    border: solid 1px black;
+width: 30%;
   }
+
+  h1{
+    text-align: center;
+  }
+
+.target{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+}

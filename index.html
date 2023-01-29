@@ -6,43 +6,79 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <title>Document</title>
 </head>
 
 <body>
-    <div class="box">
-        <form id="investment-form">
-            <label for="principal">Initial Depo:</label>
-            <input type="number" id="principal" name="principal">
-            <br>
-            <label for="rate">Rate:</label>
-            <input type="text" id="rate" name="rate">
-            <br>
-            <label for="months">Months:</label>
-            <input type="number" id="months" name="months">
-            <br>
-            <label for="monthly-addition">Monthly Addition:</label>
-            <input type="number" id="monthly-addition" name="monthly-addition">
-            <br>
-            <input type="submit" value="Calculate" id="calculate">
-        </form>
+    <h1 class="text-3xl font-bold underline">Simulation Goal Savings</h1>
+    <div class="flex justify-center">
+        <div class="mb-3 xl:w-96">
+            <form id="investment-form">
+                <label for="principal" class="block">
+                    <span
+                        class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+                        Initial Depo:
+                    </span>
+                    <input type="number" id="principal" name="principal" min="0"
+                        class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" />
+                </label>
+                <label for="rate" class="block">
+                    <span
+                        class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+                        Rate:
+                    </span>
+                    <input type="text" id="rate" name="rate"
+                        class="mt-1 px-1 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" />
+                </label>
+                <label for="months" class="block">
+                    <span
+                        class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+                        months:
+                    </span>
+                    <input type="number" id="months" name="rate" min="0" max="360"
+                        class="mt-1 px-1 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" />
+                </label>
+                <label for="monthly-addition" class="block">
+                    <span
+                        class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+                        monthly-addition:
+                    </span>
+                    <input type="number" id="monthly-addition" name="rate" min="0"
+                        class="mt-1 px-1 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" />
+                </label>
+                <br>
+                <div class="flex items-center justify-between">
+                    <button
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        type="submit">
+                        Calculate
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-    <!-- <div id="target">
-    </div> -->
-    <div id="target">
-        <table>
-            <thead>
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                    <th>Month</th>
-                    <th>Returns</th>
-                    <th>Hasil bulanan</th>
+                    <th scope="col" class="px-6 py-3">Month</th>
+                    <th scope="col" class="px-6 py-3">Returns</th>
+                    <th scope="col" class="px-6 py-3">Hasil bulanan</th>
                 </tr>
             </thead>
             <tbody> </tbody>
         </table>
     </div>
-    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+    <div>
+        <canvas id="bar-chart" width="40" height="20"></canvas>
+    </div>
     <script src="app.js"></script>
 </body>
 
