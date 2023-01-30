@@ -1,31 +1,42 @@
 .box {
-    max-width: 400px;
-    margin: 50px auto;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
-  }
+  max-width: 400px;
+  margin: 50px auto;
+  /* background: white; */
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
 
-  table, th, td{
-    border-collapse: collapse;
-width: 30%;
-  }
+table,
+th,
+td {
+  width: 30%;
+  margin: auto;
+}
 
-  h1{
-    text-align: center;
-  }
+#tablecenter{
+  margin: auto;
+}
 
-  .card-title{
-    text-align: center;
-  }
+h1 {
+  text-align: center;
+}
 
-.target{
+h3 {
+  text-align: center;
+}
+
+.card-title {
+  text-align: center;
+}
+
+.target {
   position: fixed;
   top: 50%;
   left: 50%;
   margin-top: -50px;
   margin-left: -100px;
 }
+
 /* 
 canvas{
   margin-left: 50px;
@@ -34,6 +45,11 @@ canvas{
 } */
 
 .chart-wrapper {
-  height:  400px;
+  margin: auto;
+  height: 400px;
   width: 1000px;
 }
+
+/* #hidden{
+  visibility: hidden;
+} */

@@ -14,5 +14,5 @@ formTarget.addEventListener("submit", function (e) {
     const Durasi = parseInt(document.getElementById("Durasi").value);
     const hasil = goalsPlan(TargetUang, Durasi);
     // console.log(hasil);
-    console.log(plan);
+    console.log(hasil);
 });
