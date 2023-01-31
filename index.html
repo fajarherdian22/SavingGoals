@@ -15,13 +15,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
-    <title>Document</title>
+    <title>Savings Simulation with Interest</title>
 
     <script>
         $(document).ready(function () {
             $("#hide").click(function () {
                 $("#assu").fadeOut(500)
-                $("#element").show();
+                $("#element").fadeIn(650);
             })
         })
     </script>
@@ -42,33 +42,33 @@
                     <label for="principal" class="block">
                         <span
                             class="after:content-[''] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
-                            Initial Deposit:
+                            Investasi Awal:
                         </span>
-                        <input type="number" id="principal" name="principal" min="0"
+                        <input type="number" id="principal" name="principal" min="0" required
                             class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" />
                     </label>
                     <label for="rate" class="block">
                         <span
                             class="after:content-[''] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
-                            Interest Rate:
+                            Bunga tahunan:
                         </span>
-                        <input type="text" id="rate" name="rate"
+                        <input type="text" id="rate" name="rate" placeholder="0.01 = 1" required
                             class="mt-1 px-1 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" />
                     </label>
                     <label for="months" class="block">
                         <span
                             class="after:content-[''] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
-                            Savings term(month):
+                            Lama menabung (Bulan):
                         </span>
-                        <input type="number" id="months" name="rate" min="0" max="360"
+                        <input type="number" id="months" name="rate" min="0" max="1000" required
                             class="mt-1 px-1 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" />
                     </label>
                     <label for="monthly-addition" class="block">
                         <span
                             class="after:content-[''] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
-                            Monthly Addition:
+                            Investasi Bulanan:
                         </span>
-                        <input type="number" id="monthly-addition" name="rate" min="0"
+                        <input type="number" id="monthly-addition" name="rate" min="0" required
                             class="mt-1 px-1 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" />
                     </label>
                     <br>
@@ -76,7 +76,7 @@
                         <button
                             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                             type="submit" id="hide">
-                            Calculate
+                            Hitung
                         </button>
                     </div>
                 </form>
@@ -87,7 +87,8 @@
                 <table class="w-96 text-sm text-left text-gray-500 dark:text-gray-400 hover:w-full">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
-                            <th scope="col" class="px-6 py-3">Month</th>
+                            <th scope="col" class="px-6 py-3">No</th>
+                            <th scope="col" class="px-6 py-3">Tanggal</th>
                             <th scope="col" class="px-6 py-3">Returns</th>
                             <th scope="col" class="px-6 py-3">Hasil bulanan</th>
                         </tr>
@@ -103,7 +104,7 @@
                             <div class="bg-white p-5">
                                 <div class="sm:flex sm:items-start">
                                     <div class="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                                        <h3 class="text-sm leading-6 font-medium text-gray-400">Total Assets</h3>
+                                        <h3 class="text-sm leading-6 font-medium text-gray-400" id="asets"></h3>
                                         <p class="text-3xl font-bold text-black" id="asu"></p>
                                     </div>
                                 </div>
@@ -114,7 +115,7 @@
                             <div class="bg-white p-5">
                                 <div class="sm:flex sm:items-start">
                                     <div class="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                                        <h3 class="text-sm leading-6 font-medium text-gray-400">Total Returns</h3>
+                                        <h3 class="text-sm leading-6 font-medium text-gray-400" id="totret"></h3>
                                         <p class="text-3xl font-bold text-black" id="ppk"></p>
                                     </div>
                                 </div>
@@ -125,7 +126,7 @@
                             <div class="bg-white p-5">
                                 <div class="sm:flex sm:items-start">
                                     <div class="text-center sm:mt-0 sm:ml-2 sm:text-left">
-                                        <h3 class="text-sm leading-6 font-medium text-gray-400">Initial Balance</h3>
+                                        <h3 class="text-sm leading-6 font-medium text-gray-400">Modal anda</h3>
                                         <p class="text-3xl font-bold text-black" id="IB"></p>
                                     </div>
                                 </div>

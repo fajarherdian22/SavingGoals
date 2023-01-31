@@ -6,6 +6,10 @@
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
 }
 
+main{
+  background-color: aqua;
+}
+
 table,
 th,
 td {
